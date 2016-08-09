@@ -21,8 +21,7 @@ public class MClient {
         MQTT mqtt = new MQTT();  
         try {  
             //设置mqtt broker的ip和端口  
-            mqtt.setHost("tcp://192.168.1.213:1883");
-            //            	mqtt.setHost("192.168.1.213", 1883);
+            mqtt.setHost("tcp://192.168.1.123:1883");
             // 原来的值：876543210，用于设置客户端会话的ID。在setCleanSession(false);被调用时，MQTT服务器利用该ID获得相应的会话。此ID应少于23个字符，默认根据本机地址、端口和时间自动生成
             mqtt.setClientId("beacons"); 
             //连接前清空会话信息,  若设为false，MQTT服务器将持久化客户端会话的主体订阅和ACK位置，默认为true
