@@ -44,18 +44,13 @@ public class MClient {
             }else{
                 System.out.println("连接失败");
             }
-            byte[] qoses = connection.subscribe(topics);  
-            Message message = connection.receive();
-            System.out.println("getTopic:"+message.getTopic());  
-            byte[] payload = message.getPayload();  
-            message.ack();  
             while(true){  
                 Thread.sleep(2000);
-                //                    System.out.println("messages:"+messages);
-                //                    System.out.println("getTopic:"+message.getTopic());
-                //                    System.out.println("getPayload:"+message.getPayload());
-                //                    System.out.println("getPayloadBuffer:"+message.getPayloadBuffer());
-                //                    System.out.println("getTopicBuffer:"+message.getTopicBuffer());
+                byte[] qoses = connection.subscribe(topics);  
+                Message message = connection.receive();
+                System.out.println("getTopic:"+message.getTopic());  
+                byte[] payload = message.getPayload();  
+                message.ack();  
                 System.out.println("MQTTFutureClient.Receive Message "+ "Topic Title :"+message.getTopic()+" context :"+String.valueOf(message.getPayloadBuffer()));  
             }  
         } catch (URISyntaxException e) {  
